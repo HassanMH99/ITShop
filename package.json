@@ -1,0 +1,20 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "The E-commerce website to buy and sell product in it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeder":"node ./backend/utils/seeder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HassanMH99/ITShop.git"
+  },
+  "author": "Mohammad Hassan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HassanMH99/ITShop/issues"
+  },
+  "homepage": "https://github.com/HassanMH99/ITShop#readme"
+}

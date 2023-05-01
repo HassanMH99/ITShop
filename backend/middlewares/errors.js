@@ -22,7 +22,23 @@ module.exports = (err,req,res,next)=>{
                 const massage = Object.values(err.errors).map(value.massage);
                 error = new ErrorHandler(massage,400)
             }
+                //handle mongooese error
+                if(err.code === 11000){
+                    const massage = `Duplicate ${Object.keys(err.keyValue)} enterd`
+                    error = new ErrorHandler(massage,400)
 
+                } 
+                //handling wrong JWT Error
+                if(err.name=='JsonWebTokenError'){
+                    const massage = `JSON Web is invalid try again`
+                    error = new ErrorHandler(massage,400)
+                }
+                 //handling expired JWT Error
+                 if(err.name=='TokenExpiredError'){
+                    const massage = `JSON Web is expired try again`
+                    error = new ErrorHandler(massage,400)
+                }
+                    
             res.status(error.statusCode).json({
                 success:false,
                 message:error.message || 'Internal Server Error'
